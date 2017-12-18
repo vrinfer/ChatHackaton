@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using IMChatApp.Models;
+using CustomerChat.Models;
 
-namespace IMChatApp.Controllers
+namespace CustomerChat.Controllers
 {
     public class HomeController : Controller
     {

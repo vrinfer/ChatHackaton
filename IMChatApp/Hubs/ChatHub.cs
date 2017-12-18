@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
-using IMChatApp.Models;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Diagnostics;
+using CustomerChat.Models;
 using Newtonsoft;
 
-namespace IMChatApp.Hubs
+namespace CustomerChat.Hubs
 {
     [HubName("chat")]
     public class ChatHub : Hub
@@ -22,11 +22,11 @@ namespace IMChatApp.Hubs
             Trace.WriteLine(message);
         }
         static readonly HashSet<string> Rooms = new HashSet<string>();
-        static List<user> loggedInUsers = new List<user>();
+        static List<User> loggedInUsers = new List<User>();
         //static List<Room> roomsWiseUser = new List<Room>();
         public string Login(string name)
         {           
-            var user = new user { name = name, ConnectionId = Context.ConnectionId, age = 20, avator = "", id = 1, sex = "Male", memberType = "Re+gistered", fontColor = "red", status = Status.Online.ToString() };
+            var user = new User { name = name, ConnectionId = Context.ConnectionId, age = 20, avator = "", id = 1, sex = "Male", memberType = "Re+gistered", fontColor = "red", status = Status.Online.ToString() };
             Clients.Caller.rooms(Rooms.ToArray());
             Clients.Caller.setInitial(Context.ConnectionId, name);
             var oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -78,7 +78,7 @@ namespace IMChatApp.Hubs
 
             if (loggedInUsers.Count(x => x.ConnectionId == id) == 0)
             {
-                loggedInUsers.Add(new user { ConnectionId = id, name = userName });              
+                loggedInUsers.Add(new User { ConnectionId = id, name = userName });              
                 Clients.Caller.onConnected(id, userName, loggedInUsers); 
                 Clients.AllExcept(id).onNewUserConnected(id, userName);
             }

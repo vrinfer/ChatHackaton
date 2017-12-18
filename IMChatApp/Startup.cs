@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(IMChatApp.Startup))]
+[assembly: OwinStartup(typeof(CustomerChat.Startup))]
 
-namespace IMChatApp
+namespace CustomerChat
 {
     public class Startup
     {
