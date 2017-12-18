@@ -1,6 +1,6 @@
 using System;
 
-namespace IMChatApp.Areas.HelpPage.ModelDescriptions
+namespace CustomerChat.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

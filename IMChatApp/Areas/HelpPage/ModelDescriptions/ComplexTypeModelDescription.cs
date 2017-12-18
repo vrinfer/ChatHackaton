@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace IMChatApp.Areas.HelpPage.ModelDescriptions
+namespace CustomerChat.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

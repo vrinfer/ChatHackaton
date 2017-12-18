@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace IMChatApp.Areas.HelpPage.ModelDescriptions
+namespace CustomerChat.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

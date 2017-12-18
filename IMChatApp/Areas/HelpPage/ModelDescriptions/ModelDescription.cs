@@ -1,6 +1,6 @@
 using System;
 
-namespace IMChatApp.Areas.HelpPage.ModelDescriptions
+namespace CustomerChat.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

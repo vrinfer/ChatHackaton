@@ -1,4 +1,4 @@
-namespace IMChatApp.Areas.HelpPage.ModelDescriptions
+namespace CustomerChat.Areas.HelpPage.ModelDescriptions
 {
     public class SimpleTypeModelDescription : ModelDescription
     {

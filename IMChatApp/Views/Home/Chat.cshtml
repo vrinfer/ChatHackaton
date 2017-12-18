@@ -1,4 +1,4 @@
-﻿@model IMChatApp.Models.Login
+﻿@model CustomerChat.Models.Login
 @{
     ViewBag.Title = "Chat";
 }
@@ -181,16 +181,16 @@
 
 @section Scripts
 {
-<script src="~/Scripts/jquery.signalR-2.0.0.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
 <script src="~/signalr/hubs"></script>
-    <script src="~/ChatScripts/angular.min.js"></script>
-  <script src="~/Scripts/angular-flash.js"></script>
-    <script type="text/javascript">
-        var app = angular.module("ChatApp", ["flash"]);
-    </script>
+<script src="~/ChatScripts/angular.min.js"></script>
+<script src="~/Scripts/angular-flash.js"></script>
+<script type="text/javascript">
+    var app = angular.module("ChatApp", ["flash"]);
+</script>
 
-    <script src="~/ChatScripts/Controlers.js"></script>
-    <script src="~/ChatScripts/Factories.js"></script>
+<script src="~/ChatScripts/Controlers.js"></script>
+<script src="~/ChatScripts/Factories.js"></script>
 
 
 }

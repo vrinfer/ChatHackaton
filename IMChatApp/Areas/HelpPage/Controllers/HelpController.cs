@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using IMChatApp.Areas.HelpPage.ModelDescriptions;
-using IMChatApp.Areas.HelpPage.Models;
+using CustomerChat.Areas.HelpPage.ModelDescriptions;
+using CustomerChat.Areas.HelpPage.Models;
 
-namespace IMChatApp.Areas.HelpPage.Controllers
+namespace CustomerChat.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

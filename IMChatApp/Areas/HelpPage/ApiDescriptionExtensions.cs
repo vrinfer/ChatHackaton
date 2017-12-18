@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace IMChatApp.Areas.HelpPage
+namespace CustomerChat.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using IMChatApp.Areas.HelpPage.ModelDescriptions;
+using CustomerChat.Areas.HelpPage.ModelDescriptions;
 
-namespace IMChatApp.Areas.HelpPage.Models
+namespace CustomerChat.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

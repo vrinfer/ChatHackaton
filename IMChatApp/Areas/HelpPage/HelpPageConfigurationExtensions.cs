@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using IMChatApp.Areas.HelpPage.ModelDescriptions;
-using IMChatApp.Areas.HelpPage.Models;
+using CustomerChat.Areas.HelpPage.ModelDescriptions;
+using CustomerChat.Areas.HelpPage.Models;
 
-namespace IMChatApp.Areas.HelpPage
+namespace CustomerChat.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {
