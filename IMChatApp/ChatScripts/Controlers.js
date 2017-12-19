@@ -7,17 +7,17 @@
     signalR.startHub();  
     $scope.activeRoom = '';
     $scope.chatHistory = [];
-    $scope.Users = []
+    $scope.Users = [];
     $scope.RoomsLoggedId = [];     
     $scope.typemsgdisable = true;  
 
     //log in
     signalR.UserEntered(function (room, user, cid) {
-         if ($scope.activeRoom == room&&user!='') {          
-            var result = $.grep($scope.users, function (e) { return e.name == user; })
+         if ($scope.activeRoom === room&&user!=='') {          
+            var result = $.grep($scope.users, function (e) { return e.name === user; })
             console.log("----------");           
             console.log(result);
-            if (result != undefined || result != null) {
+            if (result !== undefined || result !== null) {
                 $scope.users.push({ name: user, ConnectionId: cid });
                 $scope.$apply();
             }
@@ -26,9 +26,9 @@
 
     //log out
     signalR.UserLoggedOut(function (room, user) {
-        if ($scope.activeRoom == room && user != '') {          
+        if ($scope.activeRoom === room && user !== '') {          
             $scope.users = $scope.users.filter(function (themObjects) {
-                return themObjects.name != user;
+                return themObjects.name !== user;
             });          
                $scope.$apply();
             }        
@@ -86,7 +86,7 @@
         });            
         signalR.NewOfflineUser(function (user) {
             $.each($scope.OnlineUsers, function (i) {
-                if ($scope.OnlineUsers[i].name === user.name && $scope.OnlineUsers[i].ConnectionId==user.ConnectionId) 
+                if ($scope.OnlineUsers[i].name === user.name && $scope.OnlineUsers[i].ConnectionId === user.ConnectionId) 
                     {
                     $scope.OnlineUsers.splice(i, 1);
                     var message = '<strong> !! ' + user.name + '</strong> left the chat ';
@@ -98,12 +98,12 @@
             $scope.$apply();
         });        
         $scope.SkeyPress =function(e) {
-            if (e.which == 13)
+            if (e.which === 13)
             {
                 $scope.SendPrivateMessage();
-                $scope.usertyping = ''
+                $scope.usertyping = '';
             }
-            else if (e.which == 46 || e.which == 8) {
+            else if (e.which === 46 || e.which === 8) {
                 signalR.UserTyping($scope.UserInPrivateChat.ConnectionId, 'Deleting..');
                 window.setTimeout(function () {
                     $scope.usertyping = '';
@@ -127,7 +127,7 @@
         };
         $scope.usertyping = '';
         signalR.IsTyping(function (connectionid, msg) {            
-            if ($scope.UserInPrivateChat.ConnectionId == connectionid)
+            if ($scope.UserInPrivateChat.ConnectionId === connectionid)
                 $scope.usertyping = msg;
             else
                 $scope.usertyping = '';
@@ -149,22 +149,22 @@
 
         });
         signalR.RecievingPrivateMessage(function (toname,fromname, msg) {
-           if ($scope.ShowPrivateWindow == false) {
+            if ($scope.ShowPrivateWindow === false) {
                 $scope.ShowPrivateWindow = true;
             }
            // var msgBdy = { room: r, msgx: { message: msg.message, sender: msg.sender, css: msg.css } };
             //$scope.chatHistory.push(msgBdy);
             $scope.PrivateMessages.push({ to: toname, from: fromname, message: msg });
 
-            if ($scope.$parent.UserName != fromname) // otheruser's pm
+            if ($scope.$parent.UserName !== fromname) // otheruser's pm
             {
-                if ($scope.UserInPrivateChat == null)
+                if ($scope.UserInPrivateChat === null)
                 {
                     $scope.UserInPrivateChat = { name: fromname, ConnectionId: toname }
                 }
             }
             /// To Scroll the message window.
-            if ($("#PrivateChatArea div.panel-body").length == 1) {
+            if ($("#PrivateChatArea div.panel-body").length === 1) {
             var    $container = $("#PrivateChatArea div.panel-body");
                 $container[0].scrollTop = $container[0].scrollHeight;
                 $container.animate({ scrollTop: $container[0].scrollHeight }, "fast");
