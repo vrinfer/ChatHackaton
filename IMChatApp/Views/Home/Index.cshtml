@@ -1,46 +1,76 @@
 ﻿@model CustomerChat.Models.Login
+<style>
+    .reveal .fa {
+        font-family: 'FontAwesome';
+        font-style: normal;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 1px;
+    }
+
+    #PrivateChatArea {
+        z-index: 44;
+        max-height: 300px;
+        min-height: 300px;
+        width: 278px;
+        bottom: -2%;
+        position: fixed;
+        right: 170px;
+        opacity: 1;
+    }
+
+    #OnlineUsers {
+        z-index: 88;
+        height: auto;
+        width: 181px;
+        bottom: -3%;
+        position: fixed;
+        right: 0%;
+        opacity: 1;
+    }
+
+    .alertBox {
+        bottom: 0px;
+        right: 0px;
+        position: fixed;
+        z-index: 111;
+    }
+
+    h3.media-heading {
+        font-size: 11px;
+        font-family: 'Comic Sans MS';
+        float: left;
+    }
+</style>    
+
 <div class="jumbotron">
-    <h1>SignalR Chat </h1>
-    <p class="lead">Login to enter chat</p>
-    
-    <div class="login-wrap">
+    <div id="OnlineUsers">
+        
+        <p class="lead">Let's talk!</p>
+        <div class="login-wrap">
 
-
-        @using (Html.BeginForm("Chat", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-            <h4>Use a local account to log in.</h4>
-            <hr />
-            @Html.ValidationSummary(true)
-            <div class="form-group">
-                @Html.LabelFor(m => m.UserNick, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.UserNick, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.UserNick)
+            @using (Html.BeginForm("Chat", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserNick, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserNick, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserNick)
+                    </div>
                 </div>
-            </div> 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value=" Enter Chat &raquo;" class="btn btn-primary btn-large " />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value=" Start chatting &raquo;" class="btn btn-primary btn-large " />
+                    </div>
                 </div>
-            </div>
-            <p>
-                
-            </p>
-        }
 
-
-
-        @*@Html.BeginForm()
-        {
-        <input type="text" class="form-control" placeholder="User ID" autofocus>
-        <br>
-        @*<input type="button" class="btn btn-block" value="Enter Chat" />*@
-        @*<p><a href="http://asp.net" class="btn btn-primary btn-large">Enter Chat &raquo;</a></p>*@
-        @*<button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-        <hr>
+            }
         </div>
-    }*@
     </div>
+</div>
 
 
