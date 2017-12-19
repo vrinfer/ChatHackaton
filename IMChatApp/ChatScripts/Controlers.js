@@ -8,6 +8,7 @@
     $scope.activeRoom = '';
     $scope.chatHistory = [];
     $scope.Users = [];
+    $scope.ShowUsers = true;
     $scope.RoomsLoggedId = [];     
     $scope.typemsgdisable = true;  
 
@@ -46,10 +47,11 @@
         $scope.ClosePrivateWindow = function ()
         {
             $scope.ShowPrivateWindow = false;
+            $scope.ShowUsers = true;
         }
    
         $scope.UserInPrivateChat = null;
-        $scope.ShowPrivateWindow = false;
+        $scope.ShowPrivateWindow = false;        
         $scope.PrivateMessages = [];
         $scope.currentprivatemessages = {};
         $scope.pvtmessage = '';
@@ -121,6 +123,7 @@
             debugger;
             var user = $scope.OnlineUsers[index];
             $scope.ShowPrivateWindow = true;
+            $scope.ShowUsers = false;
             $scope.UserInPrivateChat = user;
             console.log($scope.OnlineUsers);    
             $scope.$apply();
@@ -151,6 +154,7 @@
         signalR.RecievingPrivateMessage(function (toname,fromname, msg) {
             if ($scope.ShowPrivateWindow === false) {
                 $scope.ShowPrivateWindow = true;
+                $scope.ShowUsers = false;
             }
            // var msgBdy = { room: r, msgx: { message: msg.message, sender: msg.sender, css: msg.css } };
             //$scope.chatHistory.push(msgBdy);
@@ -179,7 +183,8 @@
 function OpenPrivateChatWindow(chatHub, id, userName) {
     var ctrId = 'private_' + id;
     if ($('#' + ctrId).length > 0) return;
-    createPrivateChatWindow(chatHub, id, ctrId, userName);
+    createPrivateChatWindow(chatHub, id, ctrId, userName);    
+   
 
 }
 })();
