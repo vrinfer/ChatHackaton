@@ -6,11 +6,10 @@
 <style>
     body {
         margin: 0;
-        background-image: url("../content/image/backimage.jpg");
+        background-image: url("../content/image/background-image.jpg");
         background-position: top center;
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-size: cover;
         height: 2000px;
     }    
 
@@ -70,8 +69,9 @@
 </style>  
 
 <p class="row">
-
-    <div ng-app="ChatApp" ng-controller="chatController">
+    
+<div class="alert-success " id="userNick" style="padding:8px; text-align:left ; text-wrap:initial; text-indent:each-line">Welcome   <h4 id="userNick">  @ViewBag.Username !!</h4> </div>
+<div ng-app="ChatApp" ng-controller="chatController">
         <div id="OnlineUsers">
             <div class="container">
                 <div class="row">
