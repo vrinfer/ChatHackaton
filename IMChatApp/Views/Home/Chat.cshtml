@@ -3,7 +3,6 @@
     ViewBag.Title = "Chat";
 }
 
-
 <style>
     .reveal .fa {
         font-family: 'FontAwesome';
@@ -28,12 +27,13 @@
 
     #OnlineUsers {
         z-index: 88;
-        height: auto;
-        width: 181px;
+        height: 200px;
+        width: 300px;
         bottom: -3%;
         position: fixed;
         right: 0%;
         opacity: 1;
+        border-radius: 15px;
     }
 
     .alertBox {
@@ -48,8 +48,16 @@
         font-family: 'Comic Sans MS';
         float: left;
     }
-</style>
 
+    .panel-primary {
+        border-radius: 15px;
+    }
+
+    .panel-heading {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+</style>  
 
 <p class="row">
 
@@ -62,7 +70,7 @@
                     <div>
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <span class="fa fa-users"></span>&nbsp; &nbsp; Online[{{OnlineUsers.length}}]
+                                <span class="fa fa-user-circle-o"></span>&nbsp; &nbsp; Online[{{OnlineUsers.length}}]
                                 <div class="btn-group pull-right">
 
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
